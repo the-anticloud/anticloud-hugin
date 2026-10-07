@@ -1,0 +1,727 @@
+{
+ "schema": "anticloud.tier-bench/1",
+ "project": "HUGIN",
+ "source": {
+  "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\CAMERAS\\HUGIN\\UPSTREAM_CLONE",
+  "git": {
+   "head": "REMOVED_CONTAMINATED_SHA_PENDING_API_RESOLVE",
+   "url": "https://github.com/the-anticloud/OPENMRS_CORE.git",
+   "branch": "master",
+   "committed_at": "2026-09-29T11:06:59+04:00",
+   "sha_verified_from": "local clone .git file read (no .git dir in clone)"
+  }
+ },
+ "metrics": {
+  "files_total": 768,
+  "source_files_scanned": 501,
+  "lines_of_code": 54545,
+  "languages": {
+   ".rb": 481,
+   ".erb": 71,
+   "(none)": 35,
+   ".png": 35,
+   ".json": 34,
+   ".yml": 19,
+   ".js": 18,
+   ".md": 17,
+   ".rake": 7,
+   ".conf": 6,
+   ".scss": 6,
+   ".html": 5,
+   ".atom": 3,
+   ".rss": 3,
+   ".svg": 3
+  }
+ },
+ "licence": {
+  "spdx": "MIT",
+  "class": "A",
+  "source_file": "LICENSE",
+  "redistribution_allowed": true
+ },
+ "dependencies": {
+  "count": 4,
+  "unique": 4,
+  "by_ecosystem": {
+   "npm": 4
+  },
+  "list": [
+   {
+    "ecosystem": "npm",
+    "name": "@fortawesome/fontawesome-free",
+    "version": "7.3.1",
+    "source_file": "package.json",
+    "raw": ""
+   },
+   {
+    "ecosystem": "npm",
+    "name": "esbuild",
+    "version": "^0.28.0",
+    "source_file": "package.json",
+    "raw": ""
+   },
+   {
+    "ecosystem": "npm",
+    "name": "vanilla-jsoneditor",
+    "version": "^3.12.0",
+    "source_file": "package.json",
+    "raw": ""
+   },
+   {
+    "ecosystem": "npm",
+    "name": "whatwg-url-without-unicode",
+    "version": "^8.0.0-3",
+    "source_file": "package.json",
+    "raw": ""
+   }
+  ]
+ },
+ "owasp_top10": {
+  "total_findings": 96,
+  "files_with_findings": 86,
+  "severity": {
+   "high": 19,
+   "medium": 4,
+   "low": 73
+  },
+  "categories": {
+   "A01-BrokenAccessControl": {
+    "count": 0,
+    "findings": []
+   },
+   "A02-CryptographicFailures": {
+    "count": 3,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "spec/models/agents/rss_agent_spec.rb",
+      "line": 251,
+      "cwe": "CWE-327",
+      "snippet": "it \"calculates content MD5 sums\" do"
+     },
+     {
+      "severity": "medium",
+      "file": "lib/feedjira_extension.rb",
+      "line": 266,
+      "cwe": "CWE-327",
+      "snippet": "entry_id || @dc_identifier || Digest::MD5.hexdigest(content || summary || '')"
+     },
+     {
+      "severity": "medium",
+      "file": "app/concerns/liquid_interpolatable.rb",
+      "line": 279,
+      "cwe": "CWE-327",
+      "snippet": "def md5(input)"
+     }
+    ]
+   },
+   "A03-Injection": {
+    "count": 8,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "db/migrate/20131223032112_switch_to_json_serialization.rb",
+      "line": 55,
+      "cwe": "CWE-89",
+      "snippet": "rows = ActiveRecord::Base.connection.select_rows(\"SELECT id, #{fields.join(\", \")} FROM #{quoted_table_name} WHERE id >= #{page_start} AND id < #{page_end}\")"
+     },
+     {
+      "severity": "high",
+      "file": "app/models/agents/java_script_agent.rb",
+      "line": 168,
+      "cwe": "CWE-95",
+      "snippet": "context.eval(setup_javascript)"
+     },
+     {
+      "severity": "high",
+      "file": "app/helpers/dot_helper.rb",
+      "line": 30,
+      "cwe": "CWE-78",
+      "snippet": "IO.popen(%W[#{command} -Tsvg -q1 -o/dev/stdout /dev/stdin], 'w+') do |rw|"
+     },
+     {
+      "severity": "high",
+      "file": "app/assets/javascripts/diagram.js",
+      "line": 6,
+      "cwe": "CWE-78",
+      "snippet": "$(overlay).width($(svg).width()).height($(svg).height());"
+     },
+     {
+      "severity": "high",
+      "file": "app/assets/javascripts/pages/agent-edit-page.js",
+      "line": 43,
+      "cwe": "CWE-78",
+      "snippet": "JSON.parse($(textarea).val());"
+     },
+     {
+      "severity": "high",
+      "file": "app/assets/javascripts/components/core.js",
+      "line": 37,
+      "cwe": "CWE-78",
+      "snippet": "return $(this).click(function () {"
+     },
+     {
+      "severity": "high",
+      "file": "app/assets/javascripts/components/form_configurable.js",
+      "line": 4,
+      "cwe": "CWE-78",
+      "snippet": "const attribute = $(elem).data(\"attribute\");"
+     },
+     {
+      "severity": "high",
+      "file": "app/assets/javascripts/components/utils.js",
+      "line": 81,
+      "cwe": "CWE-78",
+      "snippet": "$(modal)"
+     }
+    ]
+   },
+   "A04-InsecureDesign": {
+    "count": 9,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "spec/models/agents/telegram_agent_spec.rb",
+      "line": 6,
+      "cwe": "CWE-",
+      "snippet": "auth_token: 'xxxxxxxxx:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/twilio_receive_text_agent_spec.rb",
+      "line": 6,
+      "cwe": "CWE-",
+      "snippet": "# params: {\"ToCountry\"=>\"US\", \"ToState\"=>\"NY\", \"SmsMessageSid\"=>\"SMxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\", \"NumMedia\"=>\"0\", \"ToCity\"=>\"NEW YORK\", \"FromZip\"=>\"48342\", \"SmsSid\"=>\"SMxxxxxx"
+     },
+     {
+      "severity": "low",
+      "file": "spec/concerns/twitter_concern_spec.rb",
+      "line": 22,
+      "cwe": "CWE-",
+      "snippet": "full_text: \"Test &gt; Test &amp; https://t.co/XXXXXXXXXX &amp; Test &lt; https://t.co/YYYYYYYYYY\","
+     },
+     {
+      "severity": "low",
+      "file": "app/models/agents/telegram_agent.rb",
+      "line": 46,
+      "cwe": "CWE-",
+      "snippet": "auth_token: 'xxxxxxxxx:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',"
+     },
+     {
+      "severity": "low",
+      "file": "app/models/agents/twilio_agent.rb",
+      "line": 28,
+      "cwe": "CWE-",
+      "snippet": "'account_sid' => 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',"
+     },
+     {
+      "severity": "low",
+      "file": "app/models/agents/twilio_receive_text_agent.rb",
+      "line": 37,
+      "cwe": "CWE-",
+      "snippet": "'account_sid' => 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',"
+     },
+     {
+      "severity": "low",
+      "file": "app/models/agents/witai_agent.rb",
+      "line": 39,
+      "cwe": "CWE-",
+      "snippet": "'server_access_token' => 'xxxxx',"
+     },
+     {
+      "severity": "low",
+      "file": "app/concerns/liquid_interpolatable.rb",
+      "line": 377,
+      "cwe": "CWE-",
+      "snippet": "# - \"\\u{XXXX}\" (unicode codepoint)"
+     },
+     {
+      "severity": "low",
+      "file": "app/concerns/twitter_concern.rb",
+      "line": 116,
+      "cwe": "CWE-",
+      "snippet": "\"#{text_key}\": \"something https://t.co/XXXX\","
+     }
+    ]
+   },
+   "A05-SecurityMisconfiguration": {
+    "count": 6,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "spec/models/agents/data_output_agent_spec.rb",
+      "line": 270,
+      "cwe": "CWE-942",
+      "snippet": "agent.options['response_headers'] = {\"Access-Control-Allow-Origin\" => \"*\", \"X-My-Custom-Header\" => \"hello\"}"
+     },
+     {
+      "severity": "high",
+      "file": "spec/controllers/web_requests_controller_spec.rb",
+      "line": 89,
+      "cwe": "CWE-942",
+      "snippet": "@agent.memory['response_headers'] = {\"Access-Control-Allow-Origin\" => \"*\"}"
+     },
+     {
+      "severity": "high",
+      "file": "app/models/agents/data_output_agent.rb",
+      "line": 32,
+      "cwe": "CWE-942",
+      "snippet": "* `response_headers` - An object with any custom response headers. (example: `{\"Access-Control-Allow-Origin\": \"*\"}`)"
+     },
+     {
+      "severity": "high",
+      "file": "app/models/agents/liquid_output_agent.rb",
+      "line": 27,
+      "cwe": "CWE-942",
+      "snippet": "* `response_headers` - An object with any custom response headers. (example: `{\"Access-Control-Allow-Origin\": \"*\"}`)"
+     },
+     {
+      "severity": "high",
+      "file": "app/models/agents/webhook_agent.rb",
+      "line": 34,
+      "cwe": "CWE-942",
+      "snippet": "* `response_headers` - An object with any custom response headers. (example: `{\"Access-Control-Allow-Origin\": \"*\"}`)"
+     },
+     {
+      "severity": "high",
+      "file": "app/controllers/web_requests_controller.rb",
+      "line": 18,
+      "cwe": "CWE-942",
+      "snippet": "#   [\"<status>success</status>\", 200, 'text/xml', {\"Access-Control-Allow-Origin\" => \"*\"}]"
+     }
+    ]
+   },
+   "A06-VulnerableComponents": {
+    "count": 0,
+    "findings": []
+   },
+   "A07-AuthFailures": {
+    "count": 5,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "spec/models/service_spec.rb",
+      "line": 102,
+      "cwe": "CWE-798",
+      "snippet": "@service.refresh_token = 'refreshtokentest'"
+     },
+     {
+      "severity": "high",
+      "file": "lib/capistrano/sync.rb",
+      "line": 51,
+      "cwe": "CWE-798",
+      "snippet": "run \"mysqldump #{opts} -u #{username} --password='#{password}' #{hostcmd} #{database} | bzip2 -9 > #{shared_path}/sync/#{filename}\" do |channel, stream, data|"
+     },
+     {
+      "severity": "high",
+      "file": "docker/multi-process/scripts/bootstrap.sh",
+      "line": 34,
+      "cwe": "CWE-798",
+      "snippet": "while ! mysqladmin -u root status >/dev/null 2>&1 && ! mysqladmin -u root --password=\"${DATABASE_PASSWORD}\" status >/dev/null 2>&1"
+     },
+     {
+      "severity": "high",
+      "file": "doc/deployment/backup/example_backup.rb",
+      "line": 20,
+      "cwe": "CWE-798",
+      "snippet": "database.password           = \"your-database-password\""
+     },
+     {
+      "severity": "high",
+      "file": "app/models/agents/google_calendar_publish_agent.rb",
+      "line": 32,
+      "cwe": "CWE-798",
+      "snippet": "\"private_key\": \"-----BEGIN PRIVATE KEY-----\\\\n...\\\\n-----END PRIVATE KEY-----\\\\n\","
+     }
+    ]
+   },
+   "A08-SoftwareDataIntegrity": {
+    "count": 64,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "spec/support/shared_examples/agent_controller_concern.rb",
+      "line": 140,
+      "cwe": "CWE-319",
+      "snippet": "agent.options['configure_options'] = { 'url' => 'http://some-new-url.com/{{\"something\" | upcase}}' }"
+     },
+     {
+      "severity": "low",
+      "file": "spec/support/shared_examples/agent_proxy_concern.rb",
+      "line": 4,
+      "cwe": "CWE-319",
+      "snippet": "allow(OutboundProxy).to receive(:agent_url).and_return(\"http://optional-proxy:4750\")"
+     },
+     {
+      "severity": "low",
+      "file": "spec/support/shared_examples/web_request_concern.rb",
+      "line": 179,
+      "cwe": "CWE-319",
+      "snippet": "agent.options['proxy'] = 'http://proxy.example.com:3128'"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agent_spec.rb",
+      "line": 1175,
+      "cwe": "CWE-319",
+      "snippet": "url: 'http://xkcd.com/',"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/event_spec.rb",
+      "line": 203,
+      "cwe": "CWE-319",
+      "snippet": "'url' => 'http://some.site.example.org/',"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/commander_agent_spec.rb",
+      "line": 40,
+      "cwe": "CWE-319",
+      "snippet": "'url' => 'http://xkcd.com',"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/data_output_agent_spec.rb",
+      "line": 79,
+      "cwe": "CWE-319",
+      "snippet": "agent.options[:push_hubs] = %w[http://push.example.com]"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/dropbox_file_url_agent_spec.rb",
+      "line": 39,
+      "cwe": "CWE-319",
+      "snippet": "let(:first_dropbox_url_payload)  { { 'url' => 'http://dropbox.com/first/path/url' } }"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/email_digest_agent_spec.rb",
+      "line": 49,
+      "cwe": "CWE-319",
+      "snippet": "{:title => \"Foo\", :url => \"http://google.com\", :bar => 2},"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/evernote_agent_spec.rb",
+      "line": 145,
+      "cwe": "CWE-319",
+      "snippet": "\"<!DOCTYPE en-note SYSTEM \\\"http://xml.evernote.com/pub/enml2.dtd\\\">\" \\"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/http_status_agent_spec.rb",
+      "line": 5,
+      "cwe": "CWE-319",
+      "snippet": "stub_request(:get, 'http://google.com/')"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/imap_folder_agent_spec.rb",
+      "line": 171,
+      "cwe": "CWE-319",
+      "snippet": "'body' => '(?<foo>http://\\S+)'"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/jabber_agent_spec.rb",
+      "line": 27,
+      "cwe": "CWE-319",
+      "snippet": "e.payload = { :title => 'Weather Alert!', :url => 'http://www.weather.com/' }"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/java_script_agent_spec.rb",
+      "line": 397,
+      "cwe": "CWE-319",
+      "snippet": "var u = new URL(\"http://example.com/path?a=1\");"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/openai_llm_agent_spec.rb",
+      "line": 145,
+      "cwe": "CWE-319",
+      "snippet": "@checker.options['base_url'] = 'http://localhost:11434/v1'"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/pdf_info_agent_spec.rb",
+      "line": 21,
+      "cwe": "CWE-319",
+      "snippet": "@event = Event.new(payload: { \"url\" => \"http://example.com/test.pdf\" })"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/phantom_js_cloud_agent_spec.rb",
+      "line": 9,
+      "cwe": "CWE-319",
+      "snippet": "'url' => \"http://xkcd.com\","
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/post_agent_spec.rb",
+      "line": 18,
+      "cwe": "CWE-319",
+      "snippet": "'post_url' => \"http://www.example.com\","
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/public_transport_agent_spec.rb",
+      "line": 19,
+      "cwe": "CWE-319",
+      "snippet": "stub_request(:get, \"http://webservices.nextbus.com/service/publicXMLFeed?a=sf-muni&command=predictionsForMultiStops&stops=N%7C5215\")."
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/pushover_agent_spec.rb",
+      "line": 12,
+      "cwe": "CWE-319",
+      "snippet": "url: \"{{ url | default: 'http://someurl.com' }}\","
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/rss_agent_spec.rb",
+      "line": 31,
+      "cwe": "CWE-319",
+      "snippet": "agent.options['url'] = \"http://google.com\""
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/s3_agent_spec.rb",
+      "line": 179,
+      "cwe": "CWE-",
+      "snippet": "expect(mock_response).to receive(:contents) { [OpenStruct.new(key: 'test', etag: '231232'), OpenStruct.new(key: 'test2', etag: '4564545')] }"
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/slack_agent_spec.rb",
+      "line": 45,
+      "cwe": "CWE-319",
+      "snippet": "@checker.options['icon_url'] = \"http://something.com/image.png\""
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/tumblr_publish_agent_spec.rb",
+      "line": 29,
+      "cwe": "CWE-319",
+      "snippet": "link: \"http://huginnbot.tumblr.com/gonna-rain...\""
+     },
+     {
+      "severity": "low",
+      "file": "spec/models/agents/twilio_agent_spec.rb",
+      "line": 10,
+      "cwe": "CWE-319",
+      "snippet": ":server_url    => 'http://somename.com:3000',"
+     }
+    ]
+   },
+   "A09-LoggingMonitoringFailures": {
+    "count": 0,
+    "findings": []
+   },
+   "A10-SSRF": {
+    "count": 1,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "app/models/agents/java_script_agent.rb",
+      "line": 76,
+      "cwe": "CWE-918",
+      "snippet": "A synchronous subset of the Web `fetch` API is also available as `Agent.fetch(url, options)`.  It blocks until the response is received and returns a Response-like object with the "
+     }
+    ]
+   }
+  }
+ },
+ "owasp_llm_top10": {
+  "total_findings": 10,
+  "files_with_findings": 10,
+  "severity": {
+   "high": 9,
+   "medium": 1,
+   "low": 0
+  },
+  "categories": {
+   "LLM01-PromptInjection": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM02-SensitiveInfoDisclosure": {
+    "count": 9,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "spec/models/agents/openai_image_generation_agent_spec.rb",
+      "line": 40,
+      "cwe": "CWE-798",
+      "snippet": "allow(ENV).to receive(:[]).with('OPENAI_API_KEY') { nil }"
+     },
+     {
+      "severity": "high",
+      "file": "spec/models/agents/openai_llm_agent_spec.rb",
+      "line": 42,
+      "cwe": "CWE-798",
+      "snippet": "allow(ENV).to receive(:[]).with('OPENAI_API_KEY') { nil }"
+     },
+     {
+      "severity": "high",
+      "file": "spec/models/agents/openai_speech_agent_spec.rb",
+      "line": 51,
+      "cwe": "CWE-798",
+      "snippet": "allow(ENV).to receive(:[]).with('OPENAI_API_KEY') { nil }"
+     },
+     {
+      "severity": "high",
+      "file": "spec/models/agents/openai_video_generation_agent_spec.rb",
+      "line": 56,
+      "cwe": "CWE-798",
+      "snippet": "allow(ENV).to receive(:[]).with('OPENAI_API_KEY') { nil }"
+     },
+     {
+      "severity": "high",
+      "file": "app/models/agents/openai_image_generation_agent.rb",
+      "line": 16,
+      "cwe": "CWE-798",
+      "snippet": "* `api_key` - Your API key (use `{% credential openai_api_key %}`). Falls back to the `OPENAI_API_KEY` environment variable."
+     },
+     {
+      "severity": "high",
+      "file": "app/models/agents/openai_llm_agent.rb",
+      "line": 16,
+      "cwe": "CWE-798",
+      "snippet": "* `api_key` - Your API key (use `{% credential openai_api_key %}`). Falls back to the `OPENAI_API_KEY` environment variable."
+     },
+     {
+      "severity": "high",
+      "file": "app/models/agents/openai_speech_agent.rb",
+      "line": 27,
+      "cwe": "CWE-798",
+      "snippet": "* `api_key` - Your API key (use `{% credential openai_api_key %}`). Falls back to the `OPENAI_API_KEY` environment variable."
+     },
+     {
+      "severity": "high",
+      "file": "app/models/agents/openai_video_generation_agent.rb",
+      "line": 27,
+      "cwe": "CWE-798",
+      "snippet": "* `api_key` - Your API key (use `{% credential openai_api_key %}`). Falls back to the `OPENAI_API_KEY` environment variable."
+     },
+     {
+      "severity": "high",
+      "file": "app/concerns/openai_concern.rb",
+      "line": 21,
+      "cwe": "CWE-798",
+      "snippet": "ENV['OPENAI_API_KEY'].presence"
+     }
+    ]
+   },
+   "LLM03-SupplyChain": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM04-DataPoisoning": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM05-ImproperOutputHandling": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM06-ExcessiveAgency": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM07-SystemPromptLeak": {
+    "count": 1,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "app/models/agents/event_formatting_agent.rb",
+      "line": 94,
+      "cwe": "CWE-200",
+      "snippet": "Utils.pretty_print(Hash[options['instructions'].keys.map { |key|"
+     }
+    ]
+   },
+   "LLM08-VectorEmbeddingWeaknesses": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM09-Misinformation": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM10-UnboundedConsumption": {
+    "count": 0,
+    "findings": []
+   }
+  }
+ },
+ "sbom": {
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:3aede326-bc5c-5e93-ad54-c28e138fcbac",
+  "version": 1,
+  "metadata": {
+   "timestamp": "2026-10-06T09:25:21Z",
+   "component": {
+    "type": "application",
+    "name": "HUGIN",
+    "version": "83b357604d34",
+    "bom-ref": "pkg:generic/anticloud/HUGIN@83b357604d34",
+    "purl": "pkg:generic/anticloud/HUGIN@83b357604d34",
+    "licenses": [
+     {
+      "license": {
+       "id": "MIT"
+      }
+     }
+    ]
+   },
+   "properties": [
+    {
+     "name": "anticloud:source-commit",
+     "value": "REMOVED_CONTAMINATED_SHA_PENDING_API_RESOLVE"
+    },
+    {
+     "name": "anticloud:source-url",
+     "value": "https://github.com/the-anticloud/OPENMRS_CORE.git"
+    },
+    {
+     "name": "anticloud:tier",
+     "value": "tier-agent"
+    }
+   ]
+  },
+  "components": [
+   {
+    "type": "library",
+    "name": "@fortawesome/fontawesome-free",
+    "version": "7.3.1",
+    "purl": "pkg:npm/@fortawesome/fontawesome-free@7.3.1",
+    "bom-ref": "npm/@fortawesome/fontawesome-free@7.3.1"
+   },
+   {
+    "type": "library",
+    "name": "esbuild",
+    "version": "^0.28.0",
+    "purl": "pkg:npm/esbuild@^0.28.0",
+    "bom-ref": "npm/esbuild@^0.28.0"
+   },
+   {
+    "type": "library",
+    "name": "vanilla-jsoneditor",
+    "version": "^3.12.0",
+    "purl": "pkg:npm/vanilla-jsoneditor@^3.12.0",
+    "bom-ref": "npm/vanilla-jsoneditor@^3.12.0"
+   },
+   {
+    "type": "library",
+    "name": "whatwg-url-without-unicode",
+    "version": "^8.0.0-3",
+    "purl": "pkg:npm/whatwg-url-without-unicode@^8.0.0-3",
+    "bom-ref": "npm/whatwg-url-without-unicode@^8.0.0-3"
+   }
+  ]
+ },
+ "elapsed_seconds": 93.4
+}

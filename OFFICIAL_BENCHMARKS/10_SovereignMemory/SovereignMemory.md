@@ -1,0 +1,30 @@
+# 10 Sovereignmemory - HUGIN
+
+**Company:** Anticloud FZ LLE
+**Model:** PAX L5 Narrow L2 General 27B
+**Project:** HUGIN | Category: CAMERAS
+**Upstream:** See BENCH.json
+**Run stamp:** 2026-10-07T09:21:34.389212Z
+
+## Overview
+
+This document covers 10 sovereignmemory for the Anticloud integration of HUGIN.
+
+## Benchmark Results
+
+| Check | Status | Evidence |
+|-------|--------|----------|
+
+## Provenance
+
+- **BENCH.json SHA256:** `90d15103bf30feb00c11f37d2ad9c4776ff030c96cd50ea63202edfb2ff43a2a`
+- **Register generated:** 2026-10-06T22:30:21Z
+- **Run stamp:** 2026-10-07T09:21:34.389212Z
+
+## Contact
+
+Lois-Kleinner Alpasan — CEO & CTO, Anticloud FZ LLE
+lois@0-1.gg | 0-1.gg
+
+License: N/A + Enterprise commercial dual (Anticommons 0.1.0).
+> Self-assessment only. No external audit has been performed. A SOC 2 / NIST independent audit is committed post-funding.

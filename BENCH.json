@@ -540,10 +540,10 @@
  "version": "1.0.0",
  "source": {
   "git": {
-   "head": "5658f26d4c176e3b6052dc0a6f400f5a45a6ec83",
-   "url": "https://github.com/huginn/huginn",
-   "branch": "master",
-   "sha_verified_from": "GitHub API commits/master"
+   "url": "https://github.com/ndevenish/Hugin",
+   "head": "e3af236d8b2b6db76df3c78e14e711380966c4ae",
+   "sha_verified_from": "revendor 2026-10-15: GitHub API commit lookup",
+   "previous_substitute": "https://github.com/huginn/huginn"
   }
  }
 }
